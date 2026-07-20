@@ -9,34 +9,35 @@
   <script src="https://cdn.jsdelivr.net/npm/sortablejs@1.15.0/Sortable.min.js"></script>
   <style>
     :root {
-      /* Paleta: Terracota, Marrom, Laranja, Preto e Branco */
-      --bg: #FDFBF7;
+      /* Modo Claro: Terracota e Laranja mais marcantes, porém opacos/desbotados */
+      --bg: #F8F3EE;           /* Fundo bege bem suave e levemente opaco */
       --surface: #FFFFFF;
-      --surface2: #F5EBE6;
-      --border: #E6D5CC;
-      --text: #2B1B14;         /* Marrom Escuro / Quase Preto */
-      --text2: #6E5348;        /* Marrom Suave */
-      --accent: #C85A32;       /* Terracota Principal */
-      --accent2: #A84420;      /* Terracota Escuro */
-      --orange: #E07A5F;       /* Laranja */
-      --accent-soft: #FCECE6;  /* Terracota Suave */
-      --shadow: 0 2px 16px rgba(43, 27, 20, 0.08);
+      --surface2: #EFE4DC;     /* Superfície 2 levemente alaranjada/terracota clara */
+      --border: #D8C3B5;       /* Borda em tom terroso suave */
+      --text: #32221A;         /* Marrom muito escuro para contraste */
+      --text2: #7A6255;        /* Marrom médio opaco */
+      --accent: #B85B38;       /* Terracota suave/opaco */
+      --accent2: #9E4A2B;      /* Terracota fechado */
+      --orange: #CA7A54;       /* Laranja terroso desaturado (nada vibrante) */
+      --accent-soft: #F2E3DB;  /* Fundo selecionado em terracota pastel leve */
+      --shadow: 0 2px 16px rgba(50, 34, 26, 0.06);
       --radius: 14px;
       --radius-sm: 8px;
       --transition: 0.2s ease;
     }
     [data-theme="dark"] {
-      --bg: #120D0B;          /* Preto Quente */
-      --surface: #1E1512;      /* Marrom Muito Escuro */
-      --surface2: #2B1B14;     /* Marrom Profundo */
-      --border: #3D261D;       /* Marrom Médio Escuro */
-      --text: #F5EBE6;         /* Branco Quebrado */
-      --text2: #C4B1A7;        /* Bege Acinzentado */
-      --accent: #E07A5F;       /* Laranja / Terracota Claro */
-      --accent2: #C85A32;      /* Terracota */
-      --orange: #F4A261;       /* Laranja Vibrante */
-      --accent-soft: #2E1B14;  /* Terracota Dark Suave */
-      --shadow: 0 2px 16px rgba(0,0,0,0.5);
+      /* Modo Escuro: Marrom menos escuro, mantendo a sobriedade */
+      --bg: #211814;          /* Marrom escuro (menos próximo do preto) */
+      --surface: #2C211B;      /* Marrom médio suavizado */
+      --surface2: #382A23;     /* Marrom intermediário */
+      --border: #4D3B31;       /* Borda visível em marrom terroso */
+      --text: #F3EBE5;         /* Texto claro off-white */
+      --text2: #B09B8E;        /* Texto secundário em tom bege terroso */
+      --accent: #D16B47;       /* Terracota opaco iluminado */
+      --accent2: #B85B38;      /* Terracota base */
+      --orange: #E08963;       /* Laranja opaco para elementos de destaque */
+      --accent-soft: #422F26;  /* Destaque suave no modo escuro */
+      --shadow: 0 2px 16px rgba(0,0,0,0.4);
     }
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     body {
@@ -140,7 +141,7 @@
       opacity: 0;
       transition: opacity var(--transition);
     }
-    .tool-card:hover { border-color: var(--accent); transform: translateY(-3px); box-shadow: 0 8px 24px rgba(200,90,50,0.2); }
+    .tool-card:hover { border-color: var(--accent); transform: translateY(-3px); box-shadow: 0 8px 24px rgba(184,91,56,0.18); }
     .tool-card:hover::before { opacity: 0.04; }
     .tool-card.active { border-color: var(--accent); background: var(--accent-soft); }
     .tool-icon { font-size: 2.2rem; margin-bottom: 12px; display: block; }
@@ -225,7 +226,7 @@
       background: var(--accent);
       color: #FFFFFF;
     }
-    .btn-primary:hover { background: var(--accent2); transform: translateY(-1px); box-shadow: 0 4px 14px rgba(200,90,50,0.35); }
+    .btn-primary:hover { background: var(--accent2); transform: translateY(-1px); box-shadow: 0 4px 14px rgba(184,91,56,0.3); }
     .btn-primary:disabled { opacity: 0.5; cursor: not-allowed; transform: none; box-shadow: none; }
     .btn-secondary {
       background: var(--surface2);
@@ -253,7 +254,7 @@
       position: relative;
       overflow: hidden;
     }
-    .page-thumb:hover { border-color: var(--accent); box-shadow: 0 4px 12px rgba(200,90,50,0.18); }
+    .page-thumb:hover { border-color: var(--accent); box-shadow: 0 4px 12px rgba(184,91,56,0.18); }
     .page-thumb.selected { border-color: var(--accent); background: var(--accent-soft); }
     .page-thumb.sortable-ghost { opacity: 0.4; }
     .page-thumb canvas { width: 100%; height: auto; display: block; }
@@ -353,7 +354,7 @@
     .loading-overlay {
       display: none;
       position: fixed; inset: 0;
-      background: rgba(18, 13, 11, 0.65);
+      background: rgba(33, 24, 20, 0.65);
       z-index: 5000;
       align-items: center; justify-content: center;
       flex-direction: column; gap: 20px;
