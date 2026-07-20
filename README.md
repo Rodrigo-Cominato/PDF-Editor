@@ -1,6 +1,6 @@
 # RodrigoPDF
 
-This repository contains the source code for RodrigoPDF, a browser-based PDF editing tool inspired by iLovePDF.
+This repository contains the source code for RodrigoPDF, a browser-based PDF editing tool.
 
 Features:
 
