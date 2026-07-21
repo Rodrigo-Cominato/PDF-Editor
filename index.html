@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>RodrigoPDF</title>
+  <title>Editor PDF</title>
   <script src="https://unpkg.com/pdf-lib@1.17.1/dist/pdf-lib.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/sortablejs@1.15.0/Sortable.min.js"></script>
@@ -409,8 +409,13 @@
 <!-- ─── HEADER ─── -->
 <header>
   <div class="logo" onclick="goHome()">
-    <div class="logo-icon">R</div>
-    RodrigoPDF
+    <div class="logo-icon">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+        <polyline points="14 2 14 8 20 8"></polyline>
+      </svg>
+    </div>
+    <span data-i18n="logo_text">Editor PDF</span>
   </div>
   <div class="header-actions">
     <button class="lang-btn" onclick="toggleLang()" title="Toggle language"><span id="lang-label">EN</span></button>
@@ -423,8 +428,8 @@
   <!-- HOME -->
   <div id="home-view">
     <div class="hero">
-      <h1 data-i18n="hero_title">Editor de PDF, <span>simplificado</span></h1>
-      <p data-i18n="hero_sub">Edite, combine, divida e transforme seus PDFs — tudo no navegador, sem instalar nada.</p>
+      <h1 data-i18n="hero_title">Edite seu <span>PDF</span></h1>
+      <p data-i18n="hero_sub">Aproveite o jeito mais simples de editar seu PDF!</p>
     </div>
     <div class="tools-grid" id="tools-grid"></div>
   </div>
@@ -443,7 +448,10 @@
 </main>
 
 <footer>
-  <p>RodrigoPDF &mdash; <span data-i18n="footer_made">Feito para facilitar a vida</span> &bull; <a href="https://github.com" target="_blank">GitHub</a></p>
+  <p style="display:flex;align-items:center;justify-content:center;gap:8px">
+    <img src="rodrigo.jpg" alt="Rodrigo Cominato" style="width:26px;height:26px;border-radius:50%;object-fit:cover;border:1px solid var(--border)" />
+    <span data-i18n="footer_made">Feito por Rodrigo Cominato</span>
+  </p>
 </footer>
 
 <!-- ─── LOADING ─── -->
@@ -469,9 +477,10 @@ let sortableInstance = null;
 // ════════════════════════════════════════
 const i18n = {
   pt: {
-    hero_title: 'Editor de PDF, <span>simplificado</span>',
-    hero_sub: 'Edite, combine, divida e transforme seus PDFs — tudo no navegador, sem instalar nada.',
-    footer_made: 'Feito para facilitar a vida',
+    logo_text: 'Editor PDF',
+    hero_title: 'Edite seu <span>PDF</span>',
+    hero_sub: 'Aproveite o jeito mais simples de editar seu PDF!',
+    footer_made: 'Feito por Rodrigo Cominato',
     loading_proc: 'Processando...',
     loading_render: 'Carregando páginas...',
     // tools
@@ -524,9 +533,10 @@ const i18n = {
     selected_count: 'selecionadas',
   },
   en: {
-    hero_title: 'PDF editor, <span>simplified</span>',
-    hero_sub: 'Edit, merge, split and transform your PDFs — all in the browser, nothing to install.',
-    footer_made: 'Made to make the life easier',
+    logo_text: 'PDF Editor',
+    hero_title: 'Edit your <span>PDF</span>',
+    hero_sub: 'Enjoy the easiest way to edit your PDF!',
+    footer_made: 'Made by Rodrigo Cominato',
     loading_proc: 'Processing...',
     loading_render: 'Loading pages...',
     t_merge: 'Merge PDFs', t_merge_sub: 'Combine multiple files into one',
@@ -1295,7 +1305,7 @@ function watermark() {
     <div class="options-row" id="wm-opts" style="display:none">
       <div class="opt-group" style="flex:1;min-width:200px">
         <div class="opt-label">${t('wm_text')}</div>
-        <input class="opt-input" id="wm-text" type="text" placeholder="RodrigoPDF" style="width:100%" />
+        <input class="opt-input" id="wm-text" type="text" placeholder="Editor PDF" style="width:100%" />
       </div>
       <div class="opt-group">
         <div class="opt-label">${t('wm_size')}</div>
